@@ -18,10 +18,11 @@
         android:layout_alignParentBottom="true"
         />
 
-    <ToggleButton
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/permissionbutton"
-        android:text="Grant Permission"/>
+        android:layout_centerHorizontal="true"
+        android:text="Grant Filter Permission"/>
 
 </RelativeLayout>

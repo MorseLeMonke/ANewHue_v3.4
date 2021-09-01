@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -40,5 +42,9 @@ public class TestActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+    public void open(View view){
+        Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://enchroma.com/pages/color-blindness-test?format2=number#test"));
+        startActivity(browserIntent);
     }
 }
