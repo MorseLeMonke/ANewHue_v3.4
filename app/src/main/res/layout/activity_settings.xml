@@ -18,11 +18,57 @@
         android:layout_alignParentBottom="true"
         />
 
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/permissionbutton"
-        android:layout_centerHorizontal="true"
-        android:text="Grant Filter Permission"/>
+        android:layout_margin="15dp"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:text="Settings"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/permissionbutton"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Manage Permissons"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Manage ANewHue's access to device permissions."
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/accessiblitybutton"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Accessibility Options"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Find accessibility settings for those that may need them."
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>

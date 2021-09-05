@@ -8,17 +8,22 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
+import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private SharedMemory mSharedMemory;
     private ToggleButton mToggleButton;
     private CountDownTimer mCountDownTimer;
+    private Spinner mSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +40,16 @@ public class MainActivity extends AppCompatActivity {
 
         mSharedMemory = new SharedMemory(this);
 
+        //SPINNER
+        mSpinner = findViewById(R.id.filterspinner);
+        ArrayAdapter<CharSequence>adapter=ArrayAdapter.createFromResource(this, R.array.filters, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSpinner.setAdapter(adapter);
 
+        mSpinner.setOnItemSelectedListener(this);
+        //SPINNER END
 
+        //SEEK BAR FILTER
         SeekBar.OnSeekBarChangeListener changeListener = new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -82,7 +95,9 @@ public class MainActivity extends AppCompatActivity {
                 refresh();
             }
         });
+        //SEEK BAR FILTER END
 
+        //NAVIGATION
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         //Set Home Selected
@@ -107,8 +122,10 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        //NAVIGATION END
     }
 
+    //SEEK BAR UPDATE
     private void refresh() {
         if(mCountDownTimer != null)
             mCountDownTimer.cancel();
@@ -127,4 +144,29 @@ public class MainActivity extends AppCompatActivity {
 
         mCountDownTimer.start();
     }
+    //SEEK BAR UPDATE END
+
+    //SPINNER ITEM SELECT
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String choice = adapterView.getItemAtPosition(i).toString();
+        Toast.makeText(getApplicationContext(), choice+" Filter Selected", Toast.LENGTH_LONG).show();
+        if(choice == "Protonomaly (Red-Weak)")
+        {
+
+        }
+        if(choice == "Deutronomaly (Green-Weak)")
+        {
+
+        }
+        if(choice == "Tritanomaly (Blue-Weak)"){
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+    //SPINNER ITEM SELECT END
 }

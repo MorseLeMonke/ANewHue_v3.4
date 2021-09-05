@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ANewHue</string>
+    <string-array name="filters">
+        <item>Protonomaly (Red-Weak)</item>
+        <item>Deutronomaly (Green-Weak)</item>
+        <item>Tritanomaly (Blue-Weak)</item>
+    </string-array>
 </resources>
