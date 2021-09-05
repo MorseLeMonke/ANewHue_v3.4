@@ -167,7 +167,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             redbar.setProgress(255);
             greenbar.setProgress(0);
             bluebar.setProgress(0);
-            Toast.makeText(getApplicationContext(), "HI 1", Toast.LENGTH_LONG).show();
         }
 
         if(adapterView.getItemAtPosition(i).equals("Deutronomaly (Green-Weak)")){
@@ -175,7 +174,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             redbar.setProgress(0);
             greenbar.setProgress(255);
             bluebar.setProgress(0);
-            Toast.makeText(getApplicationContext(), "HI 2", Toast.LENGTH_LONG).show();
         }
 
         if(adapterView.getItemAtPosition(i).equals("Tritanomaly (Blue-Weak)")){
@@ -183,7 +181,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             redbar.setProgress(0);
             greenbar.setProgress(0);
             bluebar.setProgress(255);
-            Toast.makeText(getApplicationContext(), "HI 3", Toast.LENGTH_LONG).show();
         }
     }
 
