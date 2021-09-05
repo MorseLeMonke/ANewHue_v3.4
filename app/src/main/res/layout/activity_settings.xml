@@ -69,6 +69,25 @@
             android:text="Find accessibility settings for those that may need them."
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/customfilterbutton"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Custom filter"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Change the filter's hue yourself using slider bars."
+            />
+
+
     </LinearLayout>
 
 </RelativeLayout>

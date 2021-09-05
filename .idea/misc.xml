@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mpmcc/Downloads/ANewHue/app/src/main/res/drawable/ic_test.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/mpmcc/Downloads/ANewHue/app/src/main/res/layout/activity_custom_filter.xml" value="0.259375" />
         <entry key="..\:/Users/mpmcc/Downloads/ANewHue/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/mpmcc/Downloads/ANewHue/app/src/main/res/layout/activity_settings.xml" value="0.259375" />
         <entry key="..\:/Users/mpmcc/Downloads/ANewHue/app/src/main/res/layout/activity_test.xml" value="0.259375" />
+        <entry key="..\:/Users/mpmcc/Downloads/ANewHue/app/src/main/res/menu/menu_navigation.xml" value="0.259375" />
         <entry key="..\:/Users/mpmcc/Downloads/yAa/app/src/main/res/drawable/selector.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/mpmcc/Downloads/yAa/app/src/main/res/layout/activity_main.xml" value="0.21014492753623187" />
         <entry key="..\:/Users/mpmcc/Downloads/yAa/app/src/main/res/layout/activity_settings.xml" value="0.1852355072463768" />

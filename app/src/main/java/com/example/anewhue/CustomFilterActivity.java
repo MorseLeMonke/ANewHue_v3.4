@@ -6,28 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class SettingsActivity extends AppCompatActivity {
-    private Button mButton;
+public class CustomFilterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-
-        mButton = (Button) findViewById(R.id.customfilterbutton);
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                openCustomFilter();
-            }
-        });
-
+        setContentView(R.layout.activity_custom_filter);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -47,14 +35,12 @@ public class SettingsActivity extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.settingsbtn:
+                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
             }
         });
-    }
-    public void openCustomFilter() {
-        Intent intent = new Intent(this, CustomFilterActivity.class);
-        startActivity(intent);
     }
 }

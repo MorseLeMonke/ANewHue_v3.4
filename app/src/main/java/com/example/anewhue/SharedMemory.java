@@ -3,6 +3,7 @@ package com.example.anewhue;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.widget.SeekBar;
 
 public class SharedMemory {
     private SharedPreferences mSharedPreferences;

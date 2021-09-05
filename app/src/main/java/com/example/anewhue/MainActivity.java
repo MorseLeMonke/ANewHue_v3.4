@@ -30,15 +30,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final SeekBar alpha, red, green, blue;
-        alpha = findViewById(R.id.seek_alpha);
-        red = findViewById(R.id.seek_red);
-        green = findViewById(R.id.seek_green);
-        blue = findViewById(R.id.seek_blue);
-
         mToggleButton = findViewById(R.id.startButton);
 
         mSharedMemory = new SharedMemory(this);
+
+        SeekBar alpha = findViewById(R.id.seek_alpha);
+        SeekBar red = findViewById(R.id.seek_red);
+        SeekBar green = findViewById(R.id.seek_green);
+        SeekBar blue = findViewById(R.id.seek_blue);
 
         //SPINNER
         mSpinner = findViewById(R.id.filterspinner);
@@ -83,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         green.setOnSeekBarChangeListener(changeListener);
         blue.setOnSeekBarChangeListener(changeListener);
 
+        //TURN ON FILTER
         mToggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
         //SEEK BAR FILTER END
+
+
 
         //NAVIGATION
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -125,6 +127,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //NAVIGATION END
     }
 
+
+
     //SEEK BAR UPDATE
     private void refresh() {
         if(mCountDownTimer != null)
@@ -146,21 +150,40 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
     //SEEK BAR UPDATE END
 
-    //SPINNER ITEM SELECT
+
+    //SPINNER ITEM SELECT AND FILTER CHANGE
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        SeekBar alphabar = findViewById(R.id.seek_alpha);
+        SeekBar redbar = findViewById(R.id.seek_red);
+        SeekBar greenbar = findViewById(R.id.seek_green);
+        SeekBar bluebar = findViewById(R.id.seek_blue);
+
         String choice = adapterView.getItemAtPosition(i).toString();
         Toast.makeText(getApplicationContext(), choice+" Filter Selected", Toast.LENGTH_LONG).show();
-        if(choice == "Protonomaly (Red-Weak)")
-        {
 
+        if(adapterView.getItemAtPosition(i).equals("Protonomaly (Red-Weak)")){
+            alphabar.setProgress(250);
+            redbar.setProgress(255);
+            greenbar.setProgress(0);
+            bluebar.setProgress(0);
+            Toast.makeText(getApplicationContext(), "HI 1", Toast.LENGTH_LONG).show();
         }
-        if(choice == "Deutronomaly (Green-Weak)")
-        {
 
+        if(adapterView.getItemAtPosition(i).equals("Deutronomaly (Green-Weak)")){
+            alphabar.setProgress(250);
+            redbar.setProgress(0);
+            greenbar.setProgress(255);
+            bluebar.setProgress(0);
+            Toast.makeText(getApplicationContext(), "HI 2", Toast.LENGTH_LONG).show();
         }
-        if(choice == "Tritanomaly (Blue-Weak)"){
 
+        if(adapterView.getItemAtPosition(i).equals("Tritanomaly (Blue-Weak)")){
+            alphabar.setProgress(250);
+            redbar.setProgress(0);
+            greenbar.setProgress(0);
+            bluebar.setProgress(255);
+            Toast.makeText(getApplicationContext(), "HI 3", Toast.LENGTH_LONG).show();
         }
     }
 
