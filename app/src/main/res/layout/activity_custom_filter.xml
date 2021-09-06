@@ -66,6 +66,15 @@
             android:layout_marginBottom="15dp"
             android:max="255" />
 
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="Turn filter on"
+            android:textOn="turn filter off"
+            android:id="@+id/startButton1"
+            android:layout_gravity="center_vertical|center_horizontal"
+            />
+
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
