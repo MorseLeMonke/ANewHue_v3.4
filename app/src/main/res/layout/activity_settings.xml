@@ -48,8 +48,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="Manage ANewHue's access to device permissions."
+            android:text="Manage ANewHue's access to device"
+            android:layout_gravity="center_vertical|center_horizontal"
         />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="permissions."
+            android:layout_gravity="center_vertical|center_horizontal"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,8 +74,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="Find accessibility settings for those that may need them."
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Find accessibility settings for those that"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="may need them."/>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -84,7 +101,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="Change the filter's hue yourself using slider bars."
+            android:text="Change the filter's hue yourself using slider"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="bars."
+            android:layout_gravity="center_vertical|center_horizontal"
             />
 
 

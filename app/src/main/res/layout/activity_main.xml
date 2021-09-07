@@ -42,6 +42,37 @@
             android:layout_marginBottom="15dp"
             android:max="255" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Colour Blindness Filter"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:textStyle="bold"
+            android:textSize="35dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Select the filter that corresponds"
+            android:textSize="23dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="to your colour blindness type below."
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:textSize="23dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
         <Spinner
             android:layout_width="270dp"
             android:layout_height="wrap_content"
@@ -49,11 +80,18 @@
             android:layout_gravity="center_vertical|center_horizontal"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <ToggleButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textOff="Turn filter on"
-            android:textOn="turn filter off"
+            android:textOff="     Turn filter on     "
+            android:textOn="     turn filter off     "
+            android:textSize="18dp"
+            android:background="#6200ee"
+            android:textColor="@android:color/background_light"
             android:id="@+id/startButton"
             android:layout_gravity="center_vertical|center_horizontal"
             />
