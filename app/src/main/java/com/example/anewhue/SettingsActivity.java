@@ -28,6 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //OPENING CUSTOM FILTER
         mButton = findViewById(R.id.customfilterbutton);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,8 +36,9 @@ public class SettingsActivity extends AppCompatActivity {
                 openCustomFilter();
             }
         });
+        //OPENING CUSTOM FILTER END
 
-        //Granting permission button
+        //GRANTING PERMISSION BUTTON
         mPermissionButton = findViewById(R.id.permissionbutton);
         mPermissionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,8 +46,8 @@ public class SettingsActivity extends AppCompatActivity {
                 {
                     //startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
                     new AlertDialog.Builder(SettingsActivity.this)
-                            .setTitle("Permission Needed")
-                            .setMessage("This permission is needed so that the ANewHue filter can be displayed on your device.")
+                            .setTitle("Permission Required")
+                            .setMessage("This permission is required so that the ANewHue filter can be displayed on your device.")
                             .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -62,11 +64,10 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+        //GRANTING PERMISSION BUTTON END
 
-
+        //NAVIGATION BAR
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
         bottomNavigationView.setSelectedItemId(R.id.settingsbtn);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -92,4 +93,5 @@ public class SettingsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CustomFilterActivity.class);
         startActivity(intent);
     }
+    //NAVIGATION BAR END
 }

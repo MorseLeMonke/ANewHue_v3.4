@@ -1,11 +1,14 @@
 package com.example.anewhue;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.provider.Settings;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,10 +33,40 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //START-UP PERMISSION MESSAGE
+        if(!Settings.canDrawOverlays(MainActivity.this)){
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("Permission Needed")
+                    .setMessage("For ANewHue to work as intended, you need to grant the 'Draw over other apps permission'. " +
+                            "This is so we can display the colour filter on your device.")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            new AlertDialog.Builder(MainActivity.this)
+                                    .setTitle("Permission Needed")
+                                    .setMessage("After clicking 'Go to Permissions', just find and press 'ANewHue', and" +
+                                                    " then set the slider to 'Allowed'. You can change this later in ANewHue's settings menu.")
+                                    .setPositiveButton("Go to Permissions", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
+                                        }
+                                    }).create().show();
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .create().show();
+        }
+        //START-UP PERMISSION MESSAGE END
+
+        //IDENTIFYING ITEMS
         mToggleButton = findViewById(R.id.startButton);
-
         mSharedMemory = new SharedMemory(this);
-
         SeekBar alpha = findViewById(R.id.seek_alpha);
         SeekBar red = findViewById(R.id.seek_red);
         SeekBar green = findViewById(R.id.seek_green);
@@ -44,11 +77,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ArrayAdapter<CharSequence>adapter=ArrayAdapter.createFromResource(this, R.array.filters, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner.setAdapter(adapter);
-
         mSpinner.setOnItemSelectedListener(this);
         //SPINNER END
 
-        //SEEK BAR FILTER
+        //ANEWHUE FILTER (SEEKBAR)
         SeekBar.OnSeekBarChangeListener changeListener = new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -61,16 +93,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     Intent intent =new Intent(MainActivity.this, FilterService.class);
                     startService(intent);
                 }
-
                 mToggleButton.setChecked(FilterService.STATE == FilterService.STATE_ACTIVE);
-
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
@@ -82,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         green.setOnSeekBarChangeListener(changeListener);
         blue.setOnSeekBarChangeListener(changeListener);
 
-        //TURN ON FILTER
+        //ENABLING FILTER
         mToggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,16 +123,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 refresh();
             }
         });
-        //SEEK BAR FILTER END
+        //ANEWHUE FILTER END
 
 
 
-        //NAVIGATION
+        //NAVIGATION BAR
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
         bottomNavigationView.setSelectedItemId(R.id.filterbtn);
-        //Making the navigation bar work
+
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -124,9 +150,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 return false;
             }
         });
-        //NAVIGATION END
+        //NAVIGATION BAR END
     }
-
 
 
     //SEEK BAR UPDATE
@@ -183,7 +208,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             bluebar.setProgress(255);
         }
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 

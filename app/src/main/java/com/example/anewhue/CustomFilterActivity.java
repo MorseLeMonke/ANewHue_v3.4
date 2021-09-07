@@ -24,16 +24,15 @@ public class CustomFilterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_filter);
 
+        //IDENTIFYING ITEMS
         mToggleButton = findViewById(R.id.startButton1);
-
         mSharedMemory = new SharedMemory(this);
-
         SeekBar alpha = findViewById(R.id.seek_alpha1);
         SeekBar red = findViewById(R.id.seek_red1);
         SeekBar green = findViewById(R.id.seek_green1);
         SeekBar blue = findViewById(R.id.seek_blue1);
 
-        //SEEK BAR FILTER
+        //ANEWHUE FILTER (SEEKBAR)
         SeekBar.OnSeekBarChangeListener changeListener = new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -50,12 +49,10 @@ public class CustomFilterActivity extends AppCompatActivity {
                 mToggleButton.setChecked(FilterService.STATE == FilterService.STATE_ACTIVE);
 
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
@@ -80,11 +77,10 @@ public class CustomFilterActivity extends AppCompatActivity {
                 refresh();
             }
         });
-        //SEEK BAR FILTER END
+        //ANEWHUE FILTER END
 
+        //NAVIGATION BAR
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
         bottomNavigationView.setSelectedItemId(R.id.settingsbtn);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -107,6 +103,7 @@ public class CustomFilterActivity extends AppCompatActivity {
                 return false;
             }
         });
+        //NAVIGATION BAR END
     }
 
     //SEEK BAR UPDATE

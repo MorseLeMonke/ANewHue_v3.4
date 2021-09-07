@@ -19,9 +19,8 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
+        //NAVIGATION BAR
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
         bottomNavigationView.setSelectedItemId(R.id.testbtn);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -42,9 +41,12 @@ public class TestActivity extends AppCompatActivity {
                 return false;
             }
         });
+        //NAVIGATION BAR END
     }
+    // OPEN COLOUR BLIND TEST
     public void open(View view){
         Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://enchroma.com/pages/color-blindness-test?format2=number#test"));
         startActivity(browserIntent);
     }
+    // OPEN COLOUR BLIND TEST END
 }
