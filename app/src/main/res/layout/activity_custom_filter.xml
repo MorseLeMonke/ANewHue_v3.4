@@ -69,8 +69,8 @@
         <ToggleButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textOff="Turn filter on"
-            android:textOn="turn filter off"
+            android:textOff="Turn custom filter on"
+            android:textOn="turn custom filter off"
             android:id="@+id/startButton1"
             android:layout_gravity="center_vertical|center_horizontal"
             />

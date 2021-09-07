@@ -163,17 +163,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Toast.makeText(getApplicationContext(), choice+" Filter Selected", Toast.LENGTH_LONG).show();
 
         if(adapterView.getItemAtPosition(i).equals("Protonomaly (Red-Weak)")){
-            alphabar.setProgress(250);
-            redbar.setProgress(255);
+            alphabar.setProgress(105);
+            redbar.setProgress(220);
             greenbar.setProgress(0);
-            bluebar.setProgress(0);
+            bluebar.setProgress(200);
         }
 
         if(adapterView.getItemAtPosition(i).equals("Deutronomaly (Green-Weak)")){
-            alphabar.setProgress(250);
+            alphabar.setProgress(80);
             redbar.setProgress(0);
             greenbar.setProgress(255);
-            bluebar.setProgress(0);
+            bluebar.setProgress(255);
         }
 
         if(adapterView.getItemAtPosition(i).equals("Tritanomaly (Blue-Weak)")){
