@@ -1,30 +1,65 @@
 package com.example.anewhue;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class SettingsActivity extends AppCompatActivity {
     private Button mButton;
-
+    private Button mPermissionButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        mButton = (Button) findViewById(R.id.customfilterbutton);
+        mButton = findViewById(R.id.customfilterbutton);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 openCustomFilter();
+            }
+        });
+
+        //Granting permission button
+        mPermissionButton = findViewById(R.id.permissionbutton);
+        mPermissionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                {
+                    //startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
+                    new AlertDialog.Builder(SettingsActivity.this)
+                            .setTitle("Permission Needed")
+                            .setMessage("This permission is needed so that the ANewHue filter can be displayed on your device.")
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
+                                }
+                            })
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            })
+                            .create().show();
+                }
             }
         });
 
