@@ -114,13 +114,42 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mToggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(MainActivity.this, FilterService.class);
-                if (FilterService.STATE == FilterService.STATE_ACTIVE) {
-                    stopService(i);
-                } else {
-                    startService(i);
+                if(Settings.canDrawOverlays(MainActivity.this)){
+                    Intent i =new Intent(MainActivity.this, FilterService.class);
+                    if (FilterService.STATE == FilterService.STATE_ACTIVE) {
+                        stopService(i);
+                    } else {
+                        startService(i);
+                    }
+                    refresh();
                 }
-                refresh();
+                else{
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Permission Needed")
+                            .setMessage("For ANewHue to work as intended, you need to grant the 'Draw over other apps permission'. " +
+                                    "This is so we can display the colour filter on your device.")
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    new AlertDialog.Builder(MainActivity.this)
+                                            .setTitle("Permission Needed")
+                                            .setMessage("After clicking 'Go to Permissions', just find and press 'ANewHue', and" +
+                                                    " then set the slider to 'Allowed'. You can change this later in ANewHue's settings menu.")
+                                            .setPositiveButton("Go to Permissions", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
+                                                }
+                                            }).create().show();
+                                }
+                            })
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            }).create().show();
+                }
             }
         });
         //ANEWHUE FILTER END

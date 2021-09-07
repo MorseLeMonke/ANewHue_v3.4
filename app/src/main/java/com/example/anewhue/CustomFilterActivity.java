@@ -1,11 +1,14 @@
 package com.example.anewhue;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.provider.Settings;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
@@ -64,17 +67,46 @@ public class CustomFilterActivity extends AppCompatActivity {
         green.setOnSeekBarChangeListener(changeListener);
         blue.setOnSeekBarChangeListener(changeListener);
 
-        //TURN ON FILTER
+        //ENABLING FILTER
         mToggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(CustomFilterActivity.this, FilterService.class);
-                if (FilterService.STATE == FilterService.STATE_ACTIVE) {
-                    stopService(i);
-                } else {
-                    startService(i);
+                if(Settings.canDrawOverlays(CustomFilterActivity.this)){
+                    Intent i =new Intent(CustomFilterActivity.this, FilterService.class);
+                    if (FilterService.STATE == FilterService.STATE_ACTIVE) {
+                        stopService(i);
+                    } else {
+                        startService(i);
+                    }
+                    refresh();
                 }
-                refresh();
+                else{
+                    new AlertDialog.Builder(CustomFilterActivity.this)
+                            .setTitle("Permission Needed")
+                            .setMessage("For ANewHue to work as intended, you need to grant the 'Draw over other apps permission'. " +
+                                    "This is so we can display the colour filter on your device.")
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    new AlertDialog.Builder(CustomFilterActivity.this)
+                                            .setTitle("Permission Needed")
+                                            .setMessage("After clicking 'Go to Permissions', just find and press 'ANewHue', and" +
+                                                    " then set the slider to 'Allowed'. You can change this later in ANewHue's settings menu.")
+                                            .setPositiveButton("Go to Permissions", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
+                                                }
+                                            }).create().show();
+                                }
+                            })
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            }).create().show();
+                }
             }
         });
         //ANEWHUE FILTER END
