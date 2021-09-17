@@ -23,6 +23,8 @@ import com.google.android.material.navigation.NavigationBarView;
 public class SettingsActivity extends AppCompatActivity {
     private Button mButton;
     private Button mPermissionButton;
+    private Button mAccessibilityButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +90,17 @@ public class SettingsActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        //Accessibility Options
+        mAccessibilityButton = findViewById(R.id.accessibilitybutton);
+
+        mAccessibilityButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
+            }
+        });
+
     }
     public void openCustomFilter() {
         Intent intent = new Intent(this, CustomFilterActivity.class);
