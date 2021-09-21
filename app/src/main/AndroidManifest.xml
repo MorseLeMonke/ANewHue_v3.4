@@ -3,7 +3,7 @@
     package="com.example.anewhue">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.TYPE_APPLICATION_OVERLAY"/>
+    <uses-permission android:name="android.permission.TYPE_APPLICATION_OVERLAY" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ANewHue">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
         <activity
             android:name=".CustomFilterActivity"
             android:exported="true" />
@@ -28,7 +31,7 @@
             android:exported="true" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".splashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
