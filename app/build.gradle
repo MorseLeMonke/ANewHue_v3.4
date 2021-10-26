@@ -6,13 +6,14 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.anewhue"
+        applicationId "com.chumduckstudios.anewhueplus"
         minSdk 24
         targetSdk 31
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion 26
     }
 
     buildTypes {

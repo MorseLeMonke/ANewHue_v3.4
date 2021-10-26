@@ -48,7 +48,7 @@
             android:text="Colour Blindness Filter"
             android:layout_gravity="center_vertical|center_horizontal"
             android:textStyle="bold"
-            android:textSize="35dp"/>
+            android:textSize="30dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,14 +59,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="Select the filter that corresponds"
-            android:textSize="23dp"/>
+            android:textSize="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="to your colour blindness type below."
             android:layout_gravity="center_vertical|center_horizontal"
-            android:textSize="23dp"/>
+            android:textSize="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"

@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-public class FilterService extends Service {
+public class    FilterService extends Service {
     public static int STATE_ACTIVE = 0;
     public static int STATE_INACTIVE = 1;
 
@@ -41,10 +41,11 @@ public class FilterService extends Service {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
+                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
                 280,
                 PixelFormat.TRANSLUCENT
         );
+
         WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         assert windowManager != null;
         windowManager.addView(mView, layoutParams);

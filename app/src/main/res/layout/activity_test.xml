@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="21dp"
+            android:textSize="15dp"
             android:text="The button below will take you to"
             android:layout_gravity="center_vertical|center_horizontal"
             />
@@ -47,20 +47,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="21dp"
+            android:textSize="15dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="EnChroma's colour blindness test,"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="21dp"
+            android:textSize="15dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="which will accurately determine your"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="21dp"
+            android:textSize="15dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="type of colour blindness."/>
 
@@ -71,14 +71,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="21dp"
+            android:textSize="15dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="You can then use these results for the"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="21dp"
+            android:textSize="15dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="correct filter settings on ANewHue."/>
 
@@ -101,25 +101,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
+            android:textSize="10dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="We do not own EnChroma's colour"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
+            android:textSize="10dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="blindness test. We are promoting it since it"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
+            android:textSize="10dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="is accurate and we think provides the best"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
+            android:textSize="10dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="results."/>
     </LinearLayout>
